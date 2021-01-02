@@ -1,0 +1,48 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TForm1','FORMDATA',[
+  'TPF0'#6'TForm1'#5'Form1'#4'Left'#3')'#2#6'Height'#3'o'#2#3'Top'#2'w'#5'Width'
+  +#3#140#2#18'HorzScrollBar.Page'#3#167#1#18'VertScrollBar.Page'#3#21#2#7'Capt'
+  +'ion'#6'&Chris Rorden''s Spatial Processing Demo'#12'ClientHeight'#3'o'#2#11
+  +'ClientWidth'#3#140#2#5'Color'#7#6'clGray'#4'Menu'#7#9'MainMenu1'#8'OnCreate'
+  +#7#10'FormCreate'#9'OnDestroy'#7#11'FormDestroy'#8'OnResize'#7#10'FormResize'
+  +#8'Position'#7#14'poScreenCenter'#10'LCLVersion'#6#7'1.9.0.0'#0#6'TImage'#8
+  +'ImageSrc'#4'Left'#2#8#6'Height'#3#217#0#3'Top'#2'('#5'Width'#3#181#0#0#0#6
+  +'TImage'#13'ImageSrcCross'#4'Left'#2#8#6'Height'#3#0#1#3'Top'#3#8#1#5'Width'
+  +#3#181#0#0#0#6'TImage'#8'ImageDst'#4'Left'#3#200#0#6'Height'#3#217#0#3'Top'#2
+  +'('#5'Width'#3#181#0#0#0#6'TImage'#13'ImageDstCross'#4'Left'#3#200#0#6'Heigh'
+  +'t'#3#0#1#3'Top'#3#8#1#5'Width'#3#181#0#0#0#6'TImage'#8'BMPImage'#4'Left'#3#8
+  +#2#6'Height'#3#128#0#3'Top'#3' '#1#5'Width'#3#181#0#7'Visible'#8#0#0#6'TPane'
+  +'l'#6'Panel1'#4'Left'#2#0#6'Height'#2'"'#3'Top'#2#0#5'Width'#3#140#2#5'Align'
+  +#7#5'alTop'#12'ClientHeight'#2'"'#11'ClientWidth'#3#140#2#11'ParentColor'#8#8
+  +'TabOrder'#2#0#0#9'TSpinEdit'#10'SmoothEdit'#4'Left'#3#208#1#6'Height'#2#16#3
+  +'Top'#2#8#5'Width'#2'@'#8'OnChange'#7#16'SmoothEditChange'#8'TabOrder'#2#0#5
+  +'Value'#2#10#0#0#9'TComboBox'#14'TransformCombo'#4'Left'#2'P'#6'Height'#2#20
+  +#3'Top'#2#5#5'Width'#3'_'#1#13'DropDownCount'#2#24#10'ItemHeight'#2#0#13'Ite'
+  +'ms.Strings'#1#6#4'Blur'#6#11'Perspective'#6#8'Gradient'#6#14'Gaussian Noise'
+  +#6#13'Median Filter'#6#7'Fisheye'#6#15'Binarize (Otsu)'#6#21'Mosaic (Bayer F'
+  +'ilter)'#0#8'OnChange'#7#20'TransformComboChange'#5'Style'#7#14'csDropDownLi'
+  +'st'#8'TabOrder'#2#1#0#0#6'TLabel'#6'Label1'#4'Left'#2#8#6'Height'#2#16#3'To'
+  +'p'#2#8#5'Width'#2'6'#7'Caption'#6#8'Function'#11'ParentColor'#8#0#0#0#11'TO'
+  +'penDialog'#11'OpenDialog1'#6'Filter'#6#20'Bitmap (*.bmp)|*.bmp'#7'Options'
+  +#11#14'ofEnableSizing'#12'ofViewDetail'#13'ofAutoPreview'#0#4'left'#2#8#3'to'
+  +'p'#2'0'#0#0#11'TSaveDialog'#11'SaveDialog1'#10'DefaultExt'#6#4'.png'#6'Filt'
+  +'er'#6'''Bitmap (.png)|*.png|Bitmap (.bmp)|*.bmp'#4'left'#2'@'#3'top'#2'0'#0
+  +#0#9'TMainMenu'#9'MainMenu1'#4'left'#3#208#1#3'top'#2'Q'#0#9'TMenuItem'#12'F'
+  +'ileMenuItem'#7'Caption'#6#4'File'#0#9'TMenuItem'#13'ClearMenuItem'#7'Captio'
+  +'n'#6#11'Reset image'#7'Checked'#9#7'OnClick'#7#18'ClearMenuItemClick'#0#0#9
+  +'TMenuItem'#12'OpenMenuItem'#7'Caption'#6#4'Open'#7'OnClick'#7#17'OpenMenuIt'
+  +'emClick'#0#0#9'TMenuItem'#14'OpenGSMenuItem'#7'Caption'#6#17'Open as graysc'
+  +'ale'#7'OnClick'#7#19'OpenGSMenuItemClick'#0#0#9'TMenuItem'#16'OpenMeanMenuI'
+  +'tem'#7'Caption'#6#20'Open multiple (mean)'#7'OnClick'#7#21'OpenMeanMenuItem'
+  +'Click'#0#0#9'TMenuItem'#18'DifferenceMenuItem'#3'Tag'#2#1#7'Caption'#6#21'O'
+  +'pen two (difference)'#7'OnClick'#7#7'OpenTwo'#0#0#9'TMenuItem'#9'MenuItem1'
+  +#3'Tag'#2#2#7'Caption'#6#25'Open two (abs difference)'#7'OnClick'#7#7'OpenTw'
+  +'o'#0#0#9'TMenuItem'#9'MenuItem2'#3'Tag'#2#2#7'Caption'#6#23'Open two (diffe'
+  +'rence^2)'#7'OnClick'#7#7'OpenTwo'#0#0#9'TMenuItem'#12'SaveMenuItem'#7'Capti'
+  +'on'#6#4'Save'#7'OnClick'#7#17'SaveMenuItemClick'#0#0#9'TMenuItem'#12'QuitMe'
+  +'nuItem'#7'Caption'#6#4'Quit'#7'OnClick'#7#17'QuitMenuItemClick'#0#0#0#9'TMe'
+  +'nuItem'#17'TransformMenuItem'#7'Caption'#6#9'Transform'#7'OnClick'#7#22'Tra'
+  +'nsformMenuItemClick'#0#9'TMenuItem'#14'RotateMenuItem'#7'Caption'#6#6'Rotat'
+  +'e'#7'OnClick'#7#19'RotateMenuItemClick'#0#0#0#0#0
+]);

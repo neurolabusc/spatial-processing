@@ -1,0 +1,118 @@
+object Form1: TForm1
+  Left = 401
+  Height = 616
+  Top = 138
+  Width = 835
+  Caption = 'Anti-Alias Demo'
+  ClientHeight = 616
+  ClientWidth = 835
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '1.9.0.0'
+  object Image1: TImage
+    Left = 16
+    Height = 90
+    Top = 48
+    Width = 90
+  end
+  object Image2: TImage
+    Left = 320
+    Height = 90
+    Top = 48
+    Width = 90
+  end
+  object LoadBtn: TButton
+    Left = 8
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Load'
+    OnClick = LoadBtnClick
+    TabOrder = 0
+  end
+  object FilterCombo: TComboBox
+    Left = 304
+    Height = 20
+    Top = 8
+    Width = 112
+    ItemHeight = 0
+    ItemIndex = 3
+    Items.Strings = (
+      'Box (Nearest)'
+      'TriangleFilter (Linear)'
+      'Hermite'
+      'Bell'
+      'Spline'
+      'Lanczos'
+      'Mitchell '
+    )
+    OnChange = FilterComboChange
+    Style = csDropDownList
+    TabOrder = 1
+    Text = 'Bell'
+  end
+  object Label1: TLabel
+    Left = 432
+    Height = 16
+    Top = 12
+    Width = 32
+    Caption = 'Scale'
+    ParentColor = False
+  end
+  object TrackBar1: TTrackBar
+    Left = 480
+    Height = 25
+    Top = 8
+    Width = 176
+    Max = 30
+    Min = 1
+    OnChange = FilterComboChange
+    Position = 5
+    TabOrder = 2
+  end
+  object AACheck: TCheckBox
+    Left = 665
+    Height = 18
+    Top = 8
+    Width = 79
+    Caption = 'Anti-Alias'
+    Checked = True
+    OnChange = FilterComboChange
+    State = cbChecked
+    TabOrder = 3
+  end
+  object SaveBtn: TButton
+    Left = 88
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Save'
+    OnClick = SaveBtnClick
+    TabOrder = 4
+  end
+  object AboutBtn: TButton
+    Left = 168
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'About'
+    OnClick = AboutBtnClick
+    TabOrder = 5
+  end
+  object OpenDialog1: TOpenDialog
+    left = 209
+    top = 128
+  end
+  object UpdateTimer: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = UpdateTimerTimer
+    left = 257
+    top = 103
+  end
+  object SaveDialog1: TSaveDialog
+    Filter = 'PNG|*.png'
+    left = 128
+    top = 232
+  end
+end

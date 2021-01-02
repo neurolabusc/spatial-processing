@@ -1,0 +1,588 @@
+object Form1: TForm1
+  Left = 432
+  Height = 641
+  Top = 108
+  Width = 683
+  Caption = 'Filter and Affine Transform Demo'
+  ClientHeight = 641
+  ClientWidth = 683
+  Color = clGray
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Menu = MainMenu1
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.9.0.0'
+  object Panel3: TPanel
+    Left = 0
+    Height = 220
+    Top = 421
+    Width = 683
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 220
+    ClientWidth = 683
+    Color = clSilver
+    ParentColor = False
+    TabOrder = 0
+    object Label10: TLabel
+      Left = 392
+      Height = 13
+      Top = 128
+      Width = 111
+      Caption = 'Transformation matrix:'
+      ParentColor = False
+    end
+    object Label9: TLabel
+      Left = 8
+      Height = 13
+      Top = 192
+      Width = 59
+      Caption = 'Code string:'
+      ParentColor = False
+    end
+    object Shape1: TShape
+      Left = 400
+      Height = 71
+      Top = 146
+      Width = 257
+      Brush.Color = clSilver
+      Pen.Width = 2
+    end
+    object Shape2: TShape
+      Left = 416
+      Height = 79
+      Top = 140
+      Width = 219
+      Brush.Color = clSilver
+      Pen.Color = clSilver
+    end
+    object Label21: TLabel
+      Left = 392
+      Height = 13
+      Top = 6
+      Width = 28
+      Caption = 'Filter:'
+      ParentColor = False
+    end
+    object ImageKernel: TImage
+      Left = 392
+      Height = 70
+      Top = 30
+      Width = 280
+    end
+    object MatrixLabel: TLabel
+      Left = 432
+      Height = 26
+      Top = 152
+      Width = 25
+      Caption = '1 2 3'#13#10'4 5 6'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      ParentColor = False
+      ParentFont = False
+    end
+    object ListBox: TListBox
+      Left = 8
+      Height = 161
+      Top = 2
+      Width = 72
+      BorderStyle = bsNone
+      Items.Strings = (
+        'Operation 1'
+        'Operation 2'
+        'Operation 3'
+        'Operation 4'
+        'Operation 5'
+        'Operation 6'
+        'Operation 7'
+        'Operation 8'
+      )
+      ItemHeight = 20
+      OnClick = ListBoxClick
+      ParentColor = True
+      Style = lbOwnerDrawFixed
+      TabOrder = 0
+    end
+    object Panel1: TPanel
+      Left = 80
+      Height = 180
+      Top = 2
+      Width = 305
+      Caption = 'Panel1'
+      ClientHeight = 180
+      ClientWidth = 305
+      TabOrder = 1
+      object Label1: TLabel
+        Left = 8
+        Height = 13
+        Top = 11
+        Width = 27
+        Caption = 'Type:'
+        ParentColor = False
+      end
+      object Notebook: TNotebook
+        Left = 8
+        Height = 145
+        Top = 32
+        Width = 289
+        PageIndex = 0
+        TabOrder = 0
+        TabStop = True
+        object NilPage: TPage
+          object Label2: TLabel
+            Left = 22
+            Height = 26
+            Top = 22
+            Width = 237
+            Caption = 'No type is specified for this operation.'#13#10'Select operation type from the combo box above'
+            ParentColor = False
+          end
+        end
+        object TransPage: TPage
+          object Label3: TLabel
+            Left = 4
+            Height = 14
+            Top = 4
+            Width = 54
+            Caption = 'Translation'
+            ParentColor = False
+          end
+          object eDx: TEdit
+            Left = 28
+            Height = 21
+            Top = 40
+            Width = 46
+            OnChange = TranslationChanged
+            TabOrder = 0
+          end
+          object eDy: TEdit
+            Left = 28
+            Height = 21
+            Top = 68
+            Width = 46
+            OnChange = TranslationChanged
+            TabOrder = 1
+          end
+          object sbDx: TTrackBar
+            Left = 108
+            Height = 25
+            Top = 40
+            Width = 168
+            Max = 1000
+            Min = -1000
+            OnChange = TranslationScrolled
+            Position = 0
+            TickStyle = tsNone
+            TabOrder = 2
+          end
+          object sbDy: TTrackBar
+            Left = 108
+            Height = 25
+            Top = 68
+            Width = 168
+            Max = 1000
+            Min = -1000
+            OnChange = TranslationScrolled
+            Position = 0
+            TickStyle = tsNone
+            TabOrder = 3
+          end
+          object Label4: TLabel
+            Left = 4
+            Height = 14
+            Top = 47
+            Width = 13
+            Caption = 'dX'
+            ParentColor = False
+          end
+          object Label5: TLabel
+            Left = 4
+            Height = 14
+            Top = 75
+            Width = 13
+            Caption = 'dY'
+            ParentColor = False
+          end
+          object ResizeWarnLabel1: TLabel
+            Left = 4
+            Height = 14
+            Top = 100
+            Width = 267
+            Caption = 'To observe translation uncheck "Resize/Center Output"'
+            Font.Color = clRed
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            ParentColor = False
+            ParentFont = False
+          end
+        end
+        object RotPage: TPage
+          object Label11: TLabel
+            Left = 4
+            Height = 14
+            Top = 4
+            Width = 47
+            Caption = 'Rotations'
+            ParentColor = False
+          end
+          object Label18: TLabel
+            Left = 4
+            Height = 14
+            Top = 28
+            Width = 52
+            Caption = 'Pivot Point'
+            ParentColor = False
+          end
+          object eCx: TEdit
+            Left = 60
+            Height = 21
+            Top = 44
+            Width = 80
+            OnChange = RotationChanged
+            TabOrder = 0
+            Text = 'eCx'
+          end
+          object Label13: TLabel
+            Left = 12
+            Height = 14
+            Top = 48
+            Width = 12
+            Caption = 'cX'
+            ParentColor = False
+          end
+          object Label15: TLabel
+            Left = 160
+            Height = 14
+            Top = 48
+            Width = 12
+            Caption = 'cY'
+            ParentColor = False
+          end
+          object eCy: TEdit
+            Left = 196
+            Height = 21
+            Top = 44
+            Width = 80
+            OnChange = RotationChanged
+            TabOrder = 1
+            Text = 'eCy'
+          end
+          object ResizeWarnLabel2: TLabel
+            Left = 12
+            Height = 14
+            Top = 116
+            Width = 228
+            Caption = 'To see pivots, Uncheck "Resize/Center Output"'
+            Font.Color = clRed
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            ParentColor = False
+            ParentFont = False
+          end
+          object sbAlpha: TTrackBar
+            Left = 108
+            Height = 25
+            Top = 76
+            Width = 168
+            Max = 180
+            Min = -180
+            OnChange = RotationScrolled
+            Position = 0
+            TickStyle = tsNone
+            TabOrder = 2
+          end
+          object eAlpha: TEdit
+            Left = 52
+            Height = 21
+            Top = 80
+            Width = 48
+            OnChange = RotationChanged
+            TabOrder = 3
+            Text = 'eAlpha'
+          end
+          object Label16: TLabel
+            Left = 4
+            Height = 14
+            Top = 84
+            Width = 41
+            Caption = 'Degrees'
+            ParentColor = False
+          end
+        end
+        object ScalePage: TPage
+          object Label8: TLabel
+            Left = 4
+            Height = 14
+            Top = 4
+            Width = 26
+            Caption = 'Scale'
+            ParentColor = False
+          end
+          object sbSx: TTrackBar
+            Left = 108
+            Height = 25
+            Top = 36
+            Width = 168
+            Max = 2000
+            OnChange = ScaleScrolled
+            Position = 0
+            TickStyle = tsNone
+            TabOrder = 0
+          end
+          object sbSy: TTrackBar
+            Left = 112
+            Height = 25
+            Top = 71
+            Width = 168
+            Max = 2000
+            OnChange = ScaleScrolled
+            Position = 0
+            TickStyle = tsNone
+            TabOrder = 1
+          end
+          object eSx: TEdit
+            Left = 20
+            Height = 21
+            Top = 37
+            Width = 80
+            OnChange = ScaleChanged
+            TabOrder = 2
+            Text = 'eSx'
+          end
+          object eSy: TEdit
+            Left = 20
+            Height = 21
+            Top = 69
+            Width = 80
+            OnChange = ScaleChanged
+            TabOrder = 3
+            Text = 'eSy'
+          end
+          object Label7: TLabel
+            Left = 4
+            Height = 14
+            Top = 43
+            Width = 12
+            Caption = 'sX'
+            ParentColor = False
+          end
+          object Label6: TLabel
+            Left = 4
+            Height = 14
+            Top = 76
+            Width = 12
+            Caption = 'sY'
+            ParentColor = False
+          end
+        end
+        object ShearPage: TPage
+          object Label12: TLabel
+            Left = 4
+            Height = 13
+            Top = 4
+            Width = 28
+            Caption = 'Shear'
+            ParentColor = False
+          end
+          object sbFX: TTrackBar
+            Left = 108
+            Height = 25
+            Top = 26
+            Width = 168
+            Max = 100
+            Min = -100
+            OnChange = ShearScrolled
+            Position = 0
+            TickStyle = tsNone
+            TabOrder = 0
+          end
+          object sbFY: TTrackBar
+            Left = 108
+            Height = 25
+            Top = 57
+            Width = 168
+            Max = 100
+            Min = -100
+            OnChange = ShearScrolled
+            Position = 0
+            TickStyle = tsNone
+            TabOrder = 1
+          end
+          object eFX: TEdit
+            Left = 28
+            Height = 22
+            Top = 26
+            Width = 80
+            OnChange = ShearChanged
+            TabOrder = 2
+            Text = 'eFX'
+          end
+          object eFY: TEdit
+            Left = 28
+            Height = 22
+            Top = 57
+            Width = 80
+            OnChange = ShearChanged
+            TabOrder = 3
+            Text = 'eFY'
+          end
+          object Label14: TLabel
+            Left = 8
+            Height = 13
+            Top = 28
+            Width = 10
+            Caption = 'fX'
+            ParentColor = False
+          end
+          object Label17: TLabel
+            Left = 8
+            Height = 13
+            Top = 65
+            Width = 10
+            Caption = 'fY'
+            ParentColor = False
+          end
+        end
+      end
+      object ComboBox: TComboBox
+        Left = 48
+        Height = 15
+        Top = 8
+        Width = 249
+        ItemHeight = 0
+        Items.Strings = (
+          'None'
+          'Translate'
+          'Rotate'
+          'Zoom'
+          'Shear'
+        )
+        OnChange = ComboBoxChange
+        Style = csDropDownList
+        TabOrder = 1
+      end
+    end
+    object ClearBtn: TButton
+      Left = 8
+      Height = 23
+      Top = 160
+      Width = 65
+      Caption = 'Clear All'
+      OnClick = ClearBtnClick
+      TabOrder = 2
+    end
+    object CodeString: TEdit
+      Left = 80
+      Height = 22
+      Top = 188
+      Width = 305
+      ReadOnly = True
+      TabOrder = 3
+      Text = 'Clear;'
+    end
+    object InterpolationDrop: TComboBox
+      Left = 432
+      Height = 15
+      Top = 4
+      Width = 217
+      ItemHeight = 0
+      Items.Strings = (
+        'Nearest Neighbor'
+        'Linear'
+        'Lanczos3 ~Sinc'
+        'Keys Catmull-Rom'
+        'Keys Mitchell-Netravali'
+        'Keys Cubic ~Gaussian'
+      )
+      OnChange = InterpolationDropChange
+      Style = csDropDownList
+      TabOrder = 4
+    end
+    object ResizeOutCheck: TCheckBox
+      Left = 392
+      Height = 18
+      Top = 104
+      Width = 96
+      Caption = 'Resize/Center Output'
+      OnClick = ResizeOutCheckClick
+      TabOrder = 5
+    end
+    object BenchBtn: TButton
+      Left = 560
+      Height = 25
+      Top = 106
+      Width = 75
+      Caption = 'BenchBtn'
+      OnClick = BenchClick
+      TabOrder = 6
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 421
+    Top = 0
+    Width = 683
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 421
+    ClientWidth = 683
+    Color = clGray
+    ParentColor = False
+    TabOrder = 1
+    object ImageSrc: TImage
+      Left = 0
+      Height = 105
+      Top = 0
+      Width = 105
+    end
+    object ImageDest: TImage
+      Left = 412
+      Height = 105
+      Top = 0
+      Width = 105
+    end
+    object BMPImage: TImage
+      Left = 465
+      Height = 90
+      Top = 302
+      Width = 90
+      Visible = False
+    end
+  end
+  object MainMenu1: TMainMenu
+    left = 120
+    top = 8
+    object File1: TMenuItem
+      Caption = 'File'
+      object Opensource1: TMenuItem
+        Caption = 'Open source'
+        OnClick = Opensource1Click
+      end
+      object Saveoutput1: TMenuItem
+        Caption = 'Save output'
+        OnClick = Saveoutput1Click
+      end
+    end
+    object About1: TMenuItem
+      Caption = 'About'
+      object Version1: TMenuItem
+        Caption = 'Version'
+        OnClick = Version1Click
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.bmp'
+    Filter = 'Compressed (png)|*.png|Bitmap (bmp)|*.bmp|Lossy (jpg)|*.jpg'
+    left = 216
+    top = 16
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Bitmap (png,bmp,jpg)|*.bmp;*.png;*.jpg'
+    left = 8
+    top = 6
+  end
+end

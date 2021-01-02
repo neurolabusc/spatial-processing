@@ -1,0 +1,37 @@
+
+This code is substantially faster ~25% for computing CatRom then the current code
+However, the included code allows you to generate any Keys filter (whereas this only works when B=0)
+Likewise, you could write specific, faster code for the Cubic Filter  (C=0)
+
+type
+ fx = array [-1..2] of single;
+
+procedure CatRomFilter (t: single; var v: fx);
+begin
+     v[-1] := 0.5*t*((2-t)*t - 1);
+     v[0] := 0.5*(t*t*(3*t - 5) + 2);
+     v[1] := 0.5*t*((4 - 3*t)*t + 1);
+     v[2] := 0.5*(t-1)*t*t;
+end;
+
+function CatRomVal (lX,lY: single): byte;
+var
+   f: single;
+   ix,iy,dx,dy: integer;
+   vx,vy: fx;
+begin
+     ix := trunc(lX);
+     iy := trunc(lY);
+     CatRomFilter(frac(lX),vx);
+     CatRomFilter(frac(lY),vy);
+     f := 0;
+     for dx := -1 to 2 do
+         for dy := -1 to 2 do
+             f := f+ (SrcVal (ix+dx,iy+dy)*vx[dx]*vy[dy]);
+     if f <= 0 then
+        result := 0
+     else if f >= 255 then
+          result := 255
+     else
+         result := round(f);
+end;//CatRomVal
